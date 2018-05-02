@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/css1.css">
+    <meta charset="UTF-8">
+    <title>middle</title>
+</head>
+<body>
+
+<!--新闻公告部分-->
+
+<div class="news">
+    <h2 class="news_notice">新闻公告</h2>
+    <div class="featured_news">
+
+        <div class="featured_focus" style="margin: 0 .7% 0 6.5%">
+            <div class="picture">
+                <a href="javascript:" class="featured"><img src="img/newhero.jpg" class="featured_image"></a>
+            </div>
+            <div class="content">
+                <h3 class="content_title"><a href="javascript:" class="featured_text">新英雄前瞻：布丽吉塔</a></h3>
+            </div>
+        </div>
+
+        <div class="featured_focus" style="margin: 0 6.5% 0 .7%">
+            <div class="picture">
+                <a href="javascript:" class="featured"><img src="img/98.jpg" class="featured_image"></a>
+            </div>
+            <div class="content">
+                <h3 class="content_title"><a href="javascript:" class="featured_text">11月28日起购买《守望先锋》享5折特惠</a></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="all_news">
+        <button class="news_click">查看所有新闻</button>
+    </div>
+</div>
+
+<!--游戏介绍部分-->
+
+<div class="introduction">
+    <div id="intro_bg">
+        <div id="bg1" class="bg"></div>
+        <div id="bg2" class="bg"></div>
+        <div id="bg3" class="bg fadein"></div>
+    </div>
+
+    <div class="intro_text">
+        <h2 class="intro_head">为未来而战</h2>
+        <p class="intro_main">
+            军人、科学家、冒险家、奇人异士。
+            <br>
+            <br>
+            在人类陷入空前危机之时，来自全球各个国家的特种精英们，为了结束战争、重铸秩序而团结在了一起。他们，就是 <strong>守望先锋</strong>。
+            <br>
+            <br>
+            英雄们最终结束了这场危机，人类文明在随后的数十年内和平共存并迎来了一个探索、革新和发现的新时代。尽管如此，守望先锋在多年后逐渐被人们所遗忘，最终难逃被解散的命运。
+            <br>
+            <br>
+        </p>
+
+        <p class="intro_main">
+            如今，世界各地争端再起，人们都翘首期待着新英雄的出现，或旧英雄的归来。
+            <br>
+            <br>
+            你愿意与我们共同抗争吗？
+        </p>
+    </div>
+    <div class="exploreGame">
+        <button class="intro_explore">探索游戏</button>
+    </div>
+
+</div>
+
+<!--英雄人物部分-->
+
+<div class="hero">
+    <div class="hero_text">
+        <h2 class="hero_title">各具特色的英雄</h2>
+        <p class="hero_main">
+            不论喜欢哪种游戏方式，你总能找到适合自己玩法的英雄。
+            <br>
+            掌握他们独特的技能玩法，享受《守望先锋》的无穷乐趣！
+        </p>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // 替换class达到淡入淡出的效果
+    function fadeIn(e) {
+        e.className = "bg fadein"
+    };
+
+    function fadeOut(e) {
+        e.className = "bg"
+    };
+    //申明图片数组中当前的轮播图片
+    cur_img = document.getElementById("intro_bg").children.length - 1;
+
+    //图片轮播函数
+    function turnImgs(imgs) {
+
+
+        var imgs = document.getElementById("intro_bg").children;
+        if (cur_img == 0) {
+            fadeOut(imgs[cur_img]);
+            cur_img = imgs.length - 1;
+            fadeIn(imgs[cur_img]);
+        } else {
+            fadeOut(imgs[cur_img]);
+            fadeIn(imgs[cur_img - 1]);
+            cur_img--;
+        }
+    }
+
+    //设置轮播间隔
+    setInterval(turnImgs, 15000);
+</script>
+
+</body>
+</html>

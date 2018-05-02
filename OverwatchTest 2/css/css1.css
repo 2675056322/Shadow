@@ -1,0 +1,3079 @@
+*
+{
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+
+body,
+html
+{
+    font-family: 'Microsoft YaHei UI', Arial,sans-serif;
+
+    overflow-x: hidden;
+
+    width: 100%;
+
+    -webkit-font-smoothing: antialiased; /*chrome、safari*/ /*抗锯齿*/
+    -moz-osx-font-smoothing: grayscale; /*firefox*/
+}
+
+li
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+button
+{
+    outline: none;
+}
+
+/*主体视频背景*/
+
+.header
+{
+    position: relative;
+}
+
+.main_video
+{
+    position: relative;
+    top: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+}
+
+.video_
+{
+    position: absolute;
+    z-index: -5;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+
+.main_video:after
+{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    background-image: linear-gradient(180deg, transparent, transparent 56%, rgba(12, 11, 14, .62) 91%, rgba(12, 11, 14, .91));
+}
+
+/*媒体查询*/
+@media only screen and (max-width: 1300px)
+{
+    #video_
+    {
+        display: none;
+    }
+
+    .main_video
+    {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        background-image: url(../img/homepage-header-mobile-bg.jpg);
+        background-size: cover;
+    }
+}
+
+@media only screen and (min-width: 1280px)
+{
+    .main_video
+    {
+        height: 100vh;
+        min-height: 720px;
+    }
+}
+
+/*battle nav*/
+
+.nav_battle
+{
+    font-size: 15px;
+    line-height: 40px;
+
+    position: absolute;
+    z-index: 101;
+    top: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    padding: 0 40px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    background-color: rgba(40, 53, 79, .35);
+}
+
+.nav_battle_main
+{
+    display: flex;
+
+    max-width: 1600px;
+    margin: auto;
+
+    justify-content: space-between;
+}
+
+
+
+.nav_battle_main a
+{
+    color: rgba(255, 255, 255, .7);
+}
+
+.nav_battle_main a:hover
+{
+    color: #fff;
+}
+
+.battle_logo
+{
+    float: left;
+
+    width: 61.82px;
+    height: 40px;
+
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -18px -75px;
+}
+
+.battle_logo:hover
+{
+    -webkit-filter: brightness(115%); /* Chrome, Safari, Opera */
+            filter: brightness(115%);
+}
+
+.nav_battle_main ul
+{
+    float: left;
+
+    height: 40px;
+}
+
+.nav_battle .menu_left li
+{
+    float: left;
+
+    margin-left: 30px;
+}
+
+.nav_battle .menu_right li
+{
+    float: left;
+
+    margin-left: 30px;
+}
+
+.game_img
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 7px;
+    margin-left: -2px;
+
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -147px -131px;
+}
+
+/*battle nav mobile*/
+
+.nav_battle_mobile
+{
+    display: none;
+
+    height: 48px;
+
+    background-color: rgba(40, 53, 79, .35);
+}
+
+.nav_battle_mobile_main
+{
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_battle_mobile_left a
+{
+    position: relative;
+    z-index: 150;
+
+    display: block;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -188px -67px;
+}
+
+.nav_battle_mobile_middle img
+{
+    display: block;
+
+    width: auto;
+    height: 48px;
+}
+
+.nav_battle_mobile_right a
+{
+    position: relative;
+    z-index: 150;
+
+    display: block;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -188px -100px;
+}
+
+/*手机导航左边*/
+
+.navBar_mobile_left
+{
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+
+    box-sizing: border-box;
+    width: calc(100% - 60px);
+    max-width: 360px;
+
+    transform: translateX(-100%);
+    animation: mobile_slideLeft .2s forwards;
+
+    background: #2a3751;
+}
+
+.navBar_mobile_leftBack
+{
+    animation: mobile_slideBack .2s forwards;
+}
+
+@keyframes mobile_slideLeft
+{
+    0%
+    {
+        transform: translateX(-100%);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+}
+
+@keyframes mobile_slideBack
+{
+    0%
+    {
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translateX(-100%);
+
+        opacity: 1;
+    }
+}
+
+.navBar_mobile_left_main
+{
+    position: relative;
+
+    overflow: scroll;
+
+    height: 100%;
+
+    background: #2a3751;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.navBar_left_close
+{
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 48px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #00aeff;
+}
+
+.mobile_close
+{
+    display: block;
+    overflow: hidden;
+
+    width: 48px;
+    height: 48px;
+
+    cursor: pointer;
+}
+
+.mobile_close img
+{
+    position: absolute;
+    top: -112px;
+    left: -85px;
+}
+
+/*.xxx {
+    margin: 12px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(http://blz.nos.netease.com/1/fsbnet/icon-sprite.png);
+    background-repeat: no-repeat;
+    background-position: -96px -125px;
+    cursor:pointer;
+}*/
+
+.navBar_left_logo
+{
+    padding: 20px 0;
+
+    text-align: center;
+}
+
+.navBar_left_logo a
+{
+    display: inline-block;
+}
+
+
+
+
+
+.navBar_left_content ul
+{
+    line-height: 1.6;
+}
+
+.navBar_left_content ul li
+{
+    border-top: 1px solid #313d56;
+}
+
+.navBar_left_content ul li a
+{
+    display: block;
+
+    padding: 15px 25px;
+
+    text-align: left;
+    letter-spacing: .05em;
+
+    color: rgba(255, 255, 255, .85);
+    border-left: 4px solid transparent;
+}
+
+/*mobile 战网二级菜单*/
+.navBar_left_contentTwo
+{
+    overflow: hidden;
+
+    height: 0;
+}
+
+@keyframes two_open
+{
+    0%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 112px;
+    }
+}
+
+@keyframes two_close
+{
+    0%
+    {
+        height: 112px;
+    }
+    100%
+    {
+        height: 0;
+    }
+}
+
+.navBar_left_content .navBar_left_contentTwo li a
+{
+    padding-left: 40px;
+
+    background: #27334a;
+}
+
+.navBar_left_contentTwo2
+{
+    overflow: hidden;
+
+    height: 0;
+}
+
+@keyframes two_open2
+{
+    0%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 392px;
+    }
+}
+
+@keyframes two_close2
+{
+    0%
+    {
+        height: 392px;
+    }
+    100%
+    {
+        height: 0;
+    }
+}
+
+.navBar_left_content .navBar_left_contentTwo2 li a
+{
+    padding-left: 40px;
+
+    background: #27334a;
+}
+
+.navBar_left_contentTwo
+{
+    overflow: hidden;
+
+    height: 0;
+}
+
+.mobile_arrows
+{
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+
+    transition: transform .2s;
+    vertical-align: middle;
+
+    background-image: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -145px -128px;
+}
+
+.mobile_arrowsRotate
+{
+    transform: rotate(180deg);
+}
+
+#navBar_left_content_active
+{
+    border-left-color: #00c3ff;
+    background-color: #39455d;
+}
+
+.mobile_buy button
+{
+    font-size: 17px;
+    line-height: 1;
+
+    display: block;
+
+    width: 100%;
+    padding: 15px 25px;
+
+    color: rgba(255, 255, 255, .85);
+    background-color: #f7931e;
+}
+
+.navBar_left_battleLogo a
+{
+    display: block;
+}
+
+.navBar_left_battleLogo img
+{
+    display: block;
+
+    margin: 20px auto;
+}
+
+/*.ovfHiden{overflow: hidden;height: 100%;}*/
+
+/*战网右边二级菜单*/
+
+.navBar_mobile_right
+{
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    box-sizing: border-box;
+    width: calc(100% - 60px);
+    max-width: 360px;
+
+    transform: translateX(100%);
+    animation: mobile_slideRight .2s forwards;
+
+    background-color: #151a23;
+}
+
+@keyframes mobile_slideRight
+{
+    0%
+    {
+        transform: translateX(100%);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+}
+
+.navBar_mobile_rightBack
+{
+    animation: mobile_slideBack2 .2s forwards;
+}
+
+@keyframes mobile_slideBack2
+{
+    0%
+    {
+        transform: translateX(0%);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translateX(100%);
+
+        opacity: 1;
+    }
+}
+
+.navBar_mobile_right_main
+{
+    position: relative;
+
+    overflow: scroll;
+
+    height: 100%;
+
+    background-color: #151a23;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.navBar_right_close
+{
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    right: 0;
+
+    overflow: hidden;
+
+    width: 48px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #00aeff;
+}
+
+.mobile_close2
+{
+    display: block;
+    overflow: hidden;
+
+    width: 48px;
+    height: 48px;
+
+    cursor: pointer;
+}
+
+.mobile_close2 img
+{
+    position: absolute;
+    top: -112px;
+    left: -85px;
+}
+
+.navBar_right_logo
+{
+    padding: 20px 0;
+
+    text-align: center;
+    /*height: 80px;*/
+}
+
+.navBar_right_logo a
+{
+    display: inline-block;
+    overflow: hidden;
+
+    width: 89px;
+    height: 40px;
+}
+
+.navBar_right_logo img
+{
+    margin-top: -17px;
+    margin-left: -16px;
+}
+
+.battle_signIn
+{
+    padding: 20px;
+}
+
+.mobile_signIn
+{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+
+    width: 100%;
+    padding: 10px 50px;
+
+    transition: background-color .2s;
+
+    color: #fff;
+    border: solid 1px #00aeff;
+    background-color: #0e86ca;
+}
+
+.mobile_signIn:hover
+{
+    background-color: #00aeff;
+}
+
+.navBar_right_content ul li
+{
+    line-height: 44px;
+
+    border-top: solid 1px rgba(255, 255, 255, .08);
+}
+
+.navBar_right_content ul li a
+{
+    display: block;
+
+    padding: 0 20px;
+
+    letter-spacing: .05em;
+
+    color: rgba(255, 255, 255, .7);
+}
+
+.navBar_right_contentTwo
+{
+    overflow: hidden;
+
+    height: 0;
+}
+
+@keyframes two_open3
+{
+    0%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 274px;
+    }
+}
+
+@keyframes two_close3
+{
+    0%
+    {
+        height: 274px;
+    }
+    100%
+    {
+        height: 0;
+    }
+}
+
+.navBar_right_content .navBar_right_contentTwo li
+{
+    border-top: 0;
+    border-left: 5px solid #0d4563;
+}
+
+.navBar_right_content .navBar_right_contentTwo li a
+{
+    padding-left: 15px;
+
+    color: #00aeff;
+}
+
+.mobile_logo
+{
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+
+    vertical-align: middle;
+
+    background-image: url(../img/logo-mobile-ow.png);
+    background-size: contain;
+}
+
+.brand
+{
+    font-size: 70%;
+
+    position: relative;
+    bottom: .2rem;
+
+    display: inline-block;
+}
+
+#right_mobile_open
+{
+    padding-left: 15px;
+
+    border-left: 5px solid #00c3ff;
+    background-color: rgba(255,255,255,.05);
+}
+
+#right_mobile_e-sports_open
+{
+    padding-left: 15px;
+
+    border-left: 5px solid #00c3ff;
+    background-color: rgba(255,255,255,.05);
+}
+
+.right_games_open li a
+{
+    color: #00aeff;
+}
+
+.rightIcon
+{
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+
+    vertical-align: middle;
+
+    background-image: url(../img/sprite.png);
+    background-position: -141px -72px;
+}
+
+
+/*战网右边电子竞技二级菜单*/
+
+.e_sports_mobileTwo
+{
+    overflow: hidden;
+
+    height: 0;
+}
+
+@keyframes two_open4
+{
+    0%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 352px;
+    }
+}
+
+@keyframes two_close4
+{
+    0%
+    {
+        height: 352px;
+    }
+    100%
+    {
+        height: 0;
+    }
+}
+
+.navBar_right_content .e_sports_mobileTwo li
+{
+    border-top: 0;
+    border-left: 5px solid #0d4563;
+}
+
+
+.navBar_right_content .e_sports_mobileTwo li a
+{
+    color: #00aeff;
+}
+
+/*守望先锋竞技二级菜单*/
+
+.navBar_right_content .e_sports_mobileTwo .ow_e-sportsTwo li
+{
+    border-left: 0;
+}
+
+.navBar_right_content .e_sports_mobileTwo .ow_e-sportsTwo li a
+{
+    padding: 0 40px;
+}
+
+/*battle 二级菜单 pc*/
+
+.masked
+{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.games
+{
+    position: absolute;
+    z-index: 101;
+    top: 39px;
+
+    display: none;
+
+    width: 100%;
+    height: 250px;
+
+    border: solid 1px rgba(255, 255, 255, .15);
+    background: radial-gradient(ellipse farthest-side at center top, #283244 0, rgba(21, 26, 35, .95) 100%);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2);
+}
+
+.games_main
+{
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1600px;
+    height: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+@media only screen and (max-width: 1600px)
+{
+    .games_main
+    {
+        padding: 0 40px;
+    }
+}
+
+.games_icon
+{
+    position: absolute;
+    top: -5px;
+
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    margin-left: 125px;
+
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+    border-top: solid 1px rgba(255, 255, 255, .2);
+    border-right: solid 1px rgba(255, 255, 255, .2);
+    background-color: rgba(40, 50, 68, 1);
+}
+
+.games_kind
+{
+    display: flex;
+
+    height: 100%;
+    margin: auto;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.games_kind_a
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: calc(12.5% - 17.5px);
+    height: 180px;
+    margin-right: 18px;
+
+    transform: translateY(-15px);
+    animation: slide_top .25s forwards;
+
+    opacity: 0;
+    border: solid 1px rgba(255, 255, 255, .1);
+    box-shadow: 0 8px 17px rgba(0, 0, 0, .1);
+}
+
+@keyframes slide_top
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        transform: translateY(0);
+
+        opacity: 1;
+    }
+}
+
+.games_kind_a:nth-child(1),
+.e-sports_img:nth-child(1)
+{
+    animation-delay: 100ms;
+}
+
+.games_kind_a:nth-child(2),
+.e-sports_img:nth-child(2)
+{
+    animation-delay: 150ms;
+}
+
+.games_kind_a:nth-child(3),
+.e-sports_img:nth-child(3)
+{
+    animation-delay: 200ms;
+}
+
+.games_kind_a:nth-child(4),
+.e-sports_img:nth-child(4)
+{
+    animation-delay: 250ms;
+}
+
+.games_kind_a:nth-child(5),
+.e-sports_img:nth-child(5)
+{
+    animation-delay: 300ms;
+}
+
+.games_kind_a:nth-child(6),
+.e-sports_img:nth-child(6)
+{
+    margin-right: 0;
+
+    animation-delay: 350ms;
+}
+
+.games_kind_a img
+{
+    position: absolute;
+    left: 50%;
+
+    width: 216px;
+    height: 180px;
+
+    transition:         filter .2s;
+    transition: -webkit-filter .2s;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.games_kind_a img:hover
+{
+    -webkit-filter: brightness(115%);
+            filter: brightness(115%);
+}
+
+.e-sports
+{
+    position: absolute;
+    /*height: 276px;*/
+    z-index: 101;
+    top: 40px;
+
+    display: none;
+
+    width: 100%;
+
+    border: solid 1px rgba(255, 255, 255, .15);
+    border-top: none;
+    background: radial-gradient(ellipse farthest-side at center top, #283244 0, rgba(21, 26, 35, .95) 100%);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2);
+}
+
+.e-sports_main
+{
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1600px;
+    height: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+@media only screen and (max-width: 1600px)
+{
+    .e-sports_main
+    {
+        padding: 0 40px;
+    }
+}
+
+.e-sports_icon
+{
+    position: absolute;
+    top: -5px;
+
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    margin-left: 350px;
+
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+    border-top: solid 1px rgba(255, 255, 255, .2);
+    border-right: solid 1px rgba(255, 255, 255, .2);
+    background-color: rgba(40, 50, 68, 1);
+}
+
+.e-sports_kind
+{
+    display: flex;
+
+    height: 100%;
+    margin: auto;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.e-sports_img
+{
+    font-size: 13px;
+    font-weight: 400;
+
+    position: relative;
+
+    width: 16vw;
+    max-width: 192px;
+    padding: 20px 0;
+
+    transform: translateY(-15px);
+    animation: slide_top .3s forwards;
+
+    opacity: 0;
+    color: rgba(255, 255, 255, .7);
+}
+
+.e-sports_img:hover
+{
+    color: #fff;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.e-sports_img img
+{
+    width: 16vw;
+    max-width: 192px;
+    height: 16vw;
+    max-height: 192px;
+}
+
+.e-sports_img p
+{
+    line-height: 1.4;
+
+    padding-bottom: 20px;
+
+    text-align: center;
+}
+
+.ow_two_container
+{
+    overflow: hidden;
+    /*display: none;*/
+
+    width: 0;
+
+    opacity: 0;
+    background-color: rgba(21, 26, 35, 1);
+}
+
+.aaa
+{
+    animation: slide_right .4s forwards;
+
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-left: 1px solid rgba(0, 0, 0, .2);
+}
+
+.bbb
+{
+    animation: slide_right2 .4s forwards;
+}
+
+.ccc
+{
+    width: 100px;
+
+    opacity: 1;
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-left: 1px solid rgba(0, 0, 0, .2);
+}
+
+@keyframes slide_right
+{
+    0%
+    {
+        width: 0;
+
+        opacity: 0;
+    }
+    100%
+    {
+        width: 100px;
+
+        opacity: 1;
+    }
+}
+
+@keyframes slide_right2
+{
+    0%
+    {
+        width: 100px;
+
+        opacity: 1;
+    }
+    100%
+    {
+        width: 0;
+
+        opacity: 1;
+    }
+}
+
+.ow_two
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.ow_two a
+{
+    display: block;
+
+    width: 100px;
+    height: 100px;
+    margin: -6px 0;
+}
+
+.ow_two a:nth-child(1)
+{
+    margin-top: -3px;
+}
+
+.ow_two a:nth-child(3)
+{
+    margin-bottom: 0;
+}
+
+.ow_two a:hover
+{
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.ow_two a img
+{
+    display: block;
+
+    width: 100px;
+    height: 100px;
+}
+
+/*我的战网*/
+
+.my_battle
+{
+    position: absolute;
+    z-index: 101;
+    top: 39px;
+    left: 50%;
+
+    display: none;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1600px;
+    height: 170px;
+    padding: 0 20px;
+
+    transform: translateX(-50%);
+}
+
+.my_battle_icon
+{
+    position: absolute;
+    top: -5px;
+    right: 0;
+
+    box-sizing: border-box;
+    /*margin-left: 125px;*/
+    width: 10px;
+    height: 10px;
+    margin-right: 40px;
+
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+    border-top: solid 1px rgba(255, 255, 255, .2);
+    border-right: solid 1px rgba(255, 255, 255, .2);
+    background-color: rgba(40, 50, 68, 1);
+}
+
+.my_battle_main
+{
+    float: right;
+
+    width: 318px;
+
+    border: solid 1px rgba(255, 255, 255, .15);
+    background: radial-gradient(ellipse farthest-side at center top, #283244 0, rgba(21, 26, 35, .95) 100%);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2);
+}
+
+.sign_in
+{
+    font-size: 16px;
+    line-height: 1;
+
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 10px 50px;
+
+    cursor: pointer;
+    transition: background-color .2s;
+
+    color: #fff;
+    border: solid 1px #00aeff;
+    background-color: #0e86ca;
+}
+
+.sign_in:hover
+{
+    background-color: #00aeff;
+}
+
+.account
+{
+    line-height: 44px;
+
+    width: 100%;
+    height: 44px;
+
+    border-top: solid 1px rgba(255, 255, 255, .08);
+}
+
+.account a
+{
+    font-size: 16px;
+
+    display: block;
+
+    padding: 0 20px;
+
+    transition: color 200ms, background-color 200ms;
+
+    color: rgba(255, 255, 255, .7);
+}
+
+.account a:hover
+{
+    color: #fff;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.sign_in_icon
+{
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+
+    vertical-align: middle;
+
+    background-image: url(../img/sprite.png);
+    background-position: -141px -14px;
+}
+
+.register
+{
+    background-image: url(../img/sprite.png);
+    background-position: -198px -16px;
+}
+
+/*overWatch nav*/
+
+.menu
+{
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    left: 20px;
+
+    -webkit-transition: left .2s, right .2s; /* Safari and Chrome */
+       -moz-transition: left .2s, right .2s; /* Firefox 4 */
+         -o-transition: left .2s, right .2s; /* Opera */
+            transition: left .2s, right .2s;
+
+    background-color: rgba(40, 53, 79, .9);
+}
+
+.nav
+{
+    width: 100%;
+    height: 62px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+}
+
+.nav .small_logo
+{
+    display: none;
+}
+
+.nav .nav_one
+{
+    font-size: 1em;
+    line-height: 62px;
+
+    float: left;
+
+    width: 100px /*7.7%*/;
+}
+
+.nav .nav_one .nav_a
+{
+    display: block;
+
+    -webkit-transition: background-color .2s; /* Safari and Chrome */
+       -moz-transition: background-color .2s; /* Firefox 4 */
+         -o-transition: background-color .2s; /* Opera */
+            transition: background-color .2s;
+
+    color: rgba(255, 255, 255, .85);
+}
+
+.nav .nav_one .nav_a:hover
+{
+    color: #fff;
+    background-color: hsla(0, 0%, 100%, .1);
+}
+
+.nav_a:hover > .ow_img
+{
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+.nav img
+{
+    display: block;
+    float: left;
+
+    margin-top: 1px;
+    padding-right: 18px;
+    padding-left: 18px;
+}
+
+.nav_right span
+{
+    line-height: 62px;
+
+    float: right;
+
+    width: 100px /*7.8%*/;
+    height: 62px;
+
+    text-align: center;
+
+    background-color: #f7931e;
+}
+
+.nav_right span a
+{
+    font-weight: 700;
+
+    display: block;
+
+    -webkit-transition: background-color .2s; /* Safari and Chrome */
+       -moz-transition: background-color .2s; /* Firefox 4 */
+         -o-transition: background-color .2s; /* Opera */
+            transition: background-color .2s;
+
+    color: rgba(255, 255, 255, .85);
+}
+
+.nav_right span a:hover
+{
+    color: #fff;
+    background-color: hsla(0, 0%, 100%, .1);
+}
+
+.ow_img
+{
+    display: inline-block;
+
+    width: 12px;
+    height: 7px;
+    margin: 0 0 2px 3px;
+
+    background-image: url(../img/caret-gray.png);
+    background-position: 50%;
+}
+
+/*二级菜单*/
+
+.nav_two
+{
+    font-size: 12px;
+
+    position: absolute;
+    z-index: 10;
+    top: 62px;
+    left: 0;
+
+    display: none;
+
+    box-sizing: border-box;
+    /*width: -webkit-calc(100% - 226px);
+    width: calc(100% - 226px);*/
+    width: 100%;
+    height: 42px;
+    padding-left: 226px;
+
+    background-color: rgba(61, 73, 96, .95);
+}
+
+.nav_two li
+{
+    line-height: 42px;
+
+    float: left;
+
+    width: 120px;
+    height: 42px;
+}
+
+.nav_two li a
+{
+    display: block;
+
+    letter-spacing: .05em;
+
+    color: rgba(255, 255, 255, .75);
+}
+
+.nav_two li a span
+{
+    -webkit-transition: border-left .2s; /* Safari and Chrome */
+       -moz-transition: border-left .2s; /* Firefox 4 */
+         -o-transition: border-left .2s; /* Opera */
+            transition: border-left .2s;
+
+    border-left: 1px solid rgba(61, 73, 96, .0);
+}
+
+.nav_two_middle2
+{
+    box-sizing: border-box;
+    /*width: -webkit-calc(100% - 424px);
+    width: calc(100% - 424px);*/
+    width: 100%;
+    padding-left: 424px;
+}
+
+.nav_two li a:hover > .two_blue
+{
+    border-left: 1px solid #00a5e2;
+}
+
+.hasTwo:hover > .nav_two
+{
+    display: block;
+}
+
+.hasTwo:hover > .nav_two
+{
+    display: block;
+}
+
+.medal
+{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+
+    text-align: right;
+}
+
+.goodgame
+{
+    width: 18vmin;
+    min-width: 140px;
+    max-width: 296px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+/*媒体查询*/
+
+@media only screen and (max-width: 1300px)
+{
+    #nav
+    {
+        height: 58px;
+    }
+
+    #nav #pc_logo
+    {
+        display: none;
+    }
+
+    #nav #small_logo
+    {
+        display: inline-block;
+
+        width: 58px;
+        height: 58px;
+        margin: 0;
+        padding: 0;
+
+        background-image: url(../img/nav-logo-condensed.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    #nav .nav_one
+    {
+        line-height: 58px;
+
+        width: auto;
+    }
+
+    #nav .nav_one a
+    {
+        font-size: 10px;
+
+        padding: 0 16px;
+    }
+
+    #nav_right span
+    {
+        font-size: 10px;
+        line-height: 58px;
+
+        width: 55px;
+        height: 58px;
+    }
+
+    .nav_two
+    {
+        top: 58px;
+    }
+
+    .nav_two_middle1
+    {
+        /*width: -webkit-calc(100% - 30px);
+        width: calc(100% - 30px);*/
+        width: 100%;
+        height: 42px;
+        padding-left: 30px;
+    }
+
+    .nav_two_middle2
+    {
+        /*width: -webkit-calc(100% - 165px);
+        width: calc(100% - 165px);*/
+        width: 100%;
+        height: 84px;
+        padding-left: 165px;
+    }
+
+    .medal
+    {
+        position: static;
+    }
+}
+
+@media only screen and (max-width: 767px)
+{
+    .main_video
+    {
+        background-color: #555d70;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+    }
+
+    .nav_battle
+    {
+        display: none;
+    }
+
+    .menu
+    {
+        display: none;
+    }
+
+    .nav_battle_mobile
+    {
+        display: block;
+    }
+
+    .medal
+    {
+        text-align: center;
+    }
+
+    .goodgame
+    {
+        margin-top: 14px;
+        margin-right: 0;
+        margin-bottom: 14px;
+    }
+}
+
+/*中间logo*/
+
+/******************************/
+
+.main_middle
+{
+    width: 100%;
+    /*position: absolute;
+    top: 128px;*/
+    padding-top: 128px;
+
+    text-align: center;
+}
+
+.ow_logo_img
+{
+    width: 50vmin;
+    min-width: 350px;
+    margin-top: 30px;
+    /*margin-bottom: -40px;*/
+    /*margin-left: 2vmin;*/
+}
+
+.ow_logo_img_min
+{
+    display: none;
+}
+
+.logo_button
+{
+    /*    position: absolute;
+        top: 370px;*/
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: auto;
+
+    align-items: center;
+}
+
+.buy
+{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 36px;
+
+    width: 162px;
+    height: 36px;
+
+    cursor: pointer;
+    -webkit-transition: background-color .2s; /* Safari and Chrome */
+       -moz-transition: background-color .2s; /* Firefox 4 */
+         -o-transition: background-color .2s; /* Opera */
+            transition: background-color .2s;
+    letter-spacing: .025em;
+
+    color: #333;
+    border-radius: 2px;
+    background-color: #ff9c00;
+}
+
+.buy:hover
+{
+    background-color: #ffb033;
+}
+
+.intro
+{
+    font-size: 14px;
+    font-weight: 600;
+
+    width: 160px;
+    height: 34px;
+    margin-top: 18px;
+
+    cursor: pointer;
+    -webkit-transition: background-color .2s; /* Safari and Chrome */
+       -moz-transition: background-color .2s; /* Firefox 4 */
+         -o-transition: background-color .2s; /* Opera */
+            transition: background-color .2s;
+    letter-spacing: .025em;
+
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    background: none;
+}
+
+.playicon
+{
+    display: inline-block;
+
+    width: 9px;
+    height: 20px;
+    padding-right: 11px;
+
+    vertical-align: middle;
+
+    background-image: url(../img/arraw.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.intro:hover
+{
+    color: #333;
+    background: #fff;
+}
+
+.intro:hover > .playicon
+{
+    background-image: url(../img/arraw.png);
+    background-repeat: no-repeat;
+    background-position: 0 -50px;
+}
+
+/*.aaa{
+    background-color: #FFFFFF;
+    height: 500px;
+}*/
+
+.top
+{
+    font-size: 12px;
+    line-height: 30px;
+
+    position: fixed;
+    z-index: 501;
+    right: 20px;
+    bottom: 20px;
+
+    display: none;
+
+    width: 40px;
+    height: 30px;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: #000;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .25);
+}
+
+/*媒体查询*/
+@media only screen and (min-width: 1600px)
+{
+    #ow_logo_img
+    {
+        width: 70vmin;
+    }
+
+    #buy
+    {
+        font-size: 32px;
+        line-height: 60px;
+
+        width: 200px;
+        height: 60px;
+
+        color: #fff;
+    }
+
+    #intro
+    {
+        font-size: 16px;
+
+        width: 200px;
+        height: 34px;
+
+        border: 3px solid #fff;
+    }
+
+    .goodgame
+    {
+        width: 22vmin;
+    }
+}
+
+@media only screen and (max-width: 1300px)
+{
+    #ow_logo_img
+    {
+        display: none;
+    }
+
+    #ow_logo_img_min
+    {
+        display: block;
+
+        width: 70vw;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    #logo_button
+    {
+        margin-top: 7.5%;
+    }
+}
+
+@media only screen and (max-width: 767px)
+{
+    .main_middle
+    {
+        padding-top: 0;
+    }
+
+    #ow_logo_img_min
+    {
+        width: 80vw;
+    }
+
+    #logo_button
+    {
+        margin-top: 43vw;
+    }
+}
+
+/*新闻公告*/
+
+.news_row
+{
+    max-width: 1250px;
+    margin: auto;
+}
+
+.news
+{
+    width: 100%;
+    padding-bottom: 70px;
+
+    text-align: center;
+
+    background-color: #f1edf3;
+
+    /*  box-shadow: ;*/
+}
+
+.news .news_notice
+{
+    font-size: 28px;
+    font-weight: 500;
+    font-style: italic;
+
+    padding: 30px 0;
+
+    letter-spacing: .08rem;
+
+    color: #405275;
+}
+
+.featured_news
+{
+    display: flex;
+
+    padding: 0 30px;
+
+    justify-content: space-between;
+}
+
+.featured_focus
+{
+    position: relative;
+
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 0 .8333%;
+}
+
+.featured_focus_border
+{
+    position: relative;
+
+    box-sizing: border-box;
+    padding-bottom: 44.2697%;
+
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, .25);
+}
+
+.picture
+{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border-radius: 3px;
+}
+
+.picture .featured
+{
+    display: block;
+
+    width: auto;
+    height: 100%;
+
+    background-image: url(http://overwatch.nos.netease.com/a/images/2018/4/5/263dfdb07a5722cf7dab50b6c3efad88.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.featured_focus_border:hover
+{
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.content
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    text-align: left;
+}
+
+.content .content_title
+{
+    line-height: 23px;
+
+    padding: 15px 20px;
+
+    border-radius: 0 0 3px 3px;
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.featured_text
+{
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+
+    letter-spacing: .08rem;
+
+    color: #f0edf2;
+}
+
+/*
+
+
+.featured_news {
+    display: flex;
+    padding-bottom: 15px;
+    margin: 0 3%;
+}
+
+.featured_news .featured_focus {
+    position: relative;
+    width: 100%;
+}
+
+.featured_news .featured_focus .featured {
+    display: block;
+    border: 3px solid #f5f3f5;
+    border-radius: 3px;
+}
+
+.featured_focus1{
+    margin: 0 .7% 0 0;
+}
+.featured_focus2{
+    margin: 0 0 0 .7%;
+}
+
+
+.featured_image {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.content {
+    position: absolute;
+    text-align: left;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.content .content_title {
+    line-height: 23px;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, .75);
+    border-radius: 0 0 3px 3px;
+}
+
+.featured_text {
+    font-style: italic;
+    font-weight: 400;
+    color: #f0edf2;
+    font-size: 1.1rem;
+    letter-spacing: .08rem;
+}
+
+.picture .featured:hover {
+    border: 3px solid #FFFFFF;
+}
+*/
+
+.all_news
+{
+    margin-top: 25px;
+}
+
+.news_click
+{
+    font-size: 27px;
+    font-weight: bold;
+
+    padding: 3px 65px;
+
+    cursor: pointer;
+    -webkit-transition: background-color .2s; /* Safari and Chrome */
+       -moz-transition: background-color .2s; /* Firefox 4 */
+         -o-transition: background-color .2s; /* Opera */
+            transition: background-color .2s;
+    letter-spacing: .08rem;
+
+    color: #00a5e2;
+    border: 3px solid #00a5e2;
+    border-radius: 3px;
+    /*background-color: #f1edf3;*/
+    background: none;
+}
+
+.news_click:hover
+{
+    color: #fff;
+    background-color: #00a5e2;
+}
+
+/*媒体查询*/
+@media only screen and (max-width: 1300px)
+{
+    .news .news_notice
+    {
+        font-size: 24px;
+    }
+
+    .content .content_title
+    {
+        padding: 10px 20px;
+    }
+
+    .featured_text
+    {
+        font-size: .8rem;
+        font-weight: 400;
+        /*!important;*/
+    }
+}
+
+@media only screen and (max-width: 767px)
+{
+    .news
+    {
+        background-color: #fbe6e9;
+    }
+
+    .featured_news
+    {
+        flex-direction: column;
+
+        padding: 0 15px;
+    }
+
+    .featured_focus
+    {
+        width: 100%;
+        /*width: calc(100% - 1.6666%);*/
+    }
+
+    .featured_focus_border
+    {
+        padding-bottom: 65.8727%;
+    }
+
+    .news_click
+    {
+        width: calc(100% - 30px - 1.666%);
+    }
+}
+
+/*游戏介绍*/
+
+.introduction
+{
+    position: relative;
+    z-index: 15;
+
+    width: 100%;
+    padding: 80px 0 95px 0;
+
+    color: #f0edf2;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+    text-shadow: 1px 2px 3px rgba(51, 51, 51, .5);
+}
+
+/*背景图切换*/
+.bg
+{
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: opacity 2.5s linear;
+       -moz-transition: opacity 2.5s linear;
+         -o-transition: opacity 2.5s linear;
+            transition: opacity 2.5s linear;
+
+    opacity: 0;
+}
+
+#bg1
+{
+    background-image: url(../img/bg1.jpg);
+    background-position: center top;
+    background-size: cover;
+}
+
+#bg2
+{
+    background-image: url(../img/bg2.jpg);
+    background-position: center top;
+    background-size: cover;
+}
+
+#bg3
+{
+    background-image: url(../img/bg3.jpg);
+    background-position: center top;
+    background-size: cover;
+}
+
+.fadein
+{
+    opacity: 100;
+
+    filter: alpha(opacity=100); /*IE & 更早的兼容*/
+}
+
+.intro_bg-middle
+{
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #e4dfe6;
+    background-image: url(../img/cairo-tablet.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+}
+
+/*文字*/
+
+.intro_text_row
+{
+    max-width: 1250px;
+    margin: auto;
+}
+
+.intro_text
+{
+    margin: 0 30px;
+}
+
+.intro_head
+{
+    font-size: 4.6rem;
+    font-weight: 500;
+    font-style: italic;
+
+    padding-bottom: 44px;
+
+    text-align: center;
+    text-transform: none;
+}
+
+.intro_main
+{
+    font-size: 1.7rem;
+    line-height: 1.6;
+
+    padding: .3% 0 5% 0;
+
+    text-align: center;
+    letter-spacing: .05em;
+
+    color: #f0edf2;
+}
+
+.exploreGame
+{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.intro_explore
+{
+    font-size: 1.9rem;
+    font-weight: bold;
+
+    display: block;
+
+    margin: auto;
+    padding: 2px 32px 7px;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: #fefefe;
+    border: 3px solid #ff9c00;
+    border-radius: 2px;
+    background-color: #ff9c00;
+}
+
+.intro_explore:hover
+{
+    color: #fff;
+    border: 3px solid #ffb033;
+    background-color: #ffb033;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .introduction
+    {
+        padding-top: 50%;
+    }
+
+    .bg
+    {
+        display: none;
+    }
+
+    .intro_bg-middle
+    {
+        display: block;
+    }
+
+    .intro_head
+    {
+        font-size: 3.5rem;
+        font-weight: 500;
+
+        color: #405275;
+    }
+
+    .intro_main
+    {
+        font-size: 1.4rem;
+
+        color: #405275;
+        text-shadow: none;
+    }
+
+    .intro_explore
+    {
+        font-size: 1.7rem;
+        font-weight: 600;
+
+        padding: 0 27px 2px 27px;
+    }
+}
+
+@media only screen and (max-width: 400px)
+{
+    .introduction
+    {
+        padding-top: 79%;
+    }
+
+    .intro_text
+    {
+        margin: 0 15px;
+    }
+
+    .intro_head
+    {
+        font-size: 3rem;
+    }
+
+    .intro_main
+    {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .intro_bg-middle
+    {
+        background-color: #f1eff3;
+        background-image: url(../img/cairo-mobile.jpg);
+    }
+
+    .intro_explore
+    {
+        width: 100%;
+    }
+}
+
+/*英雄人物介绍*/
+
+.hero
+{
+    padding: 80px 2%;
+
+    text-align: center;
+
+    background-image: url(../img/candy.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+.hero_text
+{
+    width: 100%;
+}
+
+.hero_title
+{
+    font-size: 4.6rem;
+    font-weight: 500;
+    font-style: italic;
+
+    margin-bottom: 44px;
+
+    text-align: center;
+
+    background: -webkit-linear-gradient(top, #3f6493 10%, #345177 100%);
+    background-image: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    text-shadow: 0 4px 5px rgba(60, 72, 96, .5);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.hero_main
+{
+    font-size: 1.8rem;
+    line-height: 1.6;
+
+    margin-bottom: 3.6rem;
+
+    color: #405275;
+}
+
+.hero_banner
+{
+    display: flex;
+
+    width: 100%;
+    min-height: 200px;
+
+    align-items: center;
+}
+
+.hero_content_big
+{
+    width: 100%;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.hero_content
+{
+    position: relative;
+
+    width: 100%;
+    margin: 150px 0;
+
+    background-image: -webkit-linear-gradient(left, rgba(42, 55, 81, 0), rgba(42, 55, 81, .8) 25%, rgba(42, 55, 81, .8) 75%, rgba(42, 55, 81, 0));
+    background-image:         linear-gradient(90deg, rgba(42, 55, 81, 0) 0, rgba(42, 55, 81, .8) 25%, rgba(42, 55, 81, .8) 75%, rgba(42, 55, 81, 0));
+    background-position: 50%;
+    background-size: 1920px auto;
+}
+
+.hero1250
+{
+    max-width: 1250px;
+    margin: auto;
+}
+
+.hero_right
+{
+    width: 100%;
+    margin-left: 60%;
+    padding: 0 50px;
+
+    color: #f0edf2;
+}
+
+.hero_right h2
+{
+    font-size: 4.5rem;
+    font-weight: 500;
+    font-style: italic;
+
+    text-shadow: 0 1px 2px #000;
+}
+
+.hero_right p
+{
+    height: 50px;
+    margin-top: 10px;
+}
+
+.hero_left
+{
+    position: absolute;
+    top: -50%;
+
+    display: block;
+
+    width: 746px;
+    min-width: 746px;
+    height: 440px;
+    min-height: 440px;
+
+    background: url(../img/hero/doomfist.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: auto 100%;
+}
+
+/*英雄头像*/
+
+.hero_icon
+{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.hero_icon ul
+{
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero_head
+{
+    overflow: hidden;
+
+    width: 70px;
+    height: 84px;
+    margin: 2.4px 6px;
+
+    transition: background-color .2s;
+    -webkit-transform: skew(25rad);
+        -ms-transform: skew(25rad);
+            transform: skew(25rad);
+
+    border: 3px solid #f0edf2;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 7px;
+    background-color: rgba(51, 51, 51, .9);
+    background-clip: padding-box;
+}
+
+.hero_image
+{
+    display: inline-block;
+
+    width: calc(100% + 10px);
+    height: 100%;
+
+    -webkit-transform: skew(-25rad) translateX(-5px);
+        -ms-transform: skew(-25rad) translateX(-5px);
+            transform: skew(-25rad) translateX(-5px);
+
+    background-position: 50% 50%;
+    background-size: auto 100%;
+}
+
+.hero_icon ul li
+{
+    margin-bottom: 2rem;
+}
+
+.hero_icon .hero_label
+{
+    font-size: .8rem;
+    line-height: 22px;
+
+    position: relative;
+    top: -4.2px;
+
+    display: inline-block;
+
+    height: 22px;
+    margin-left: -10px;
+
+    transition: all .2s;
+    white-space: nowrap;
+
+    color: #333;
+}
+
+.hero_icon ul li a:hover > .hero_head
+{
+    width: 84px;
+    height: 100.8px;
+    margin: -6px -4px;
+
+    border-right-width: 3px;
+    border-left-width: 3px;
+    background-color: #f7931e;
+}
+
+.hero_icon ul li a:hover > .hero_label
+{
+    top: -8.4px;
+
+    padding: 0 13px;
+
+    border-radius: 4px;
+    background-color: #f0edf2;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .hero
+    {
+        padding: 44px 2%;
+    }
+
+    .hero_title
+    {
+        font-size: 3.5rem;
+        font-weight: 500;
+    }
+
+    .hero_main
+    {
+        font-size: 1.5rem;
+    }
+
+    .hero_content
+    {
+        display: none;
+    }
+
+    .hero_icon
+    {
+        padding-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1300px)
+{
+    .hero_right h2
+    {
+        font-size: 3.5rem;
+    }
+}
+
+/*only image*/
+
+.dorado
+{
+    height: 400px;
+    min-height: 1.8rem;
+
+    background-image: url(../img/dorado-desktop.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 16%;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .dorado
+    {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px)
+{
+    .hero_icon
+    {
+        padding: 0 2.5rem;
+    }
+}
+
+/*这个世界需要英雄*/
+
+.needHero
+{
+    position: relative;
+
+    width: 100%;
+    height: 500px;
+    padding: 80px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, .4);
+    background-image: url(../img/bg-museum.jpg);
+    background-position: center top;
+    background-size: cover;
+}
+
+
+
+.Widowmaker
+{
+    position: absolute;
+    top: -119px;
+
+    width: 50%;
+    height: 118%;
+
+    background-image: url(../img/widowmaker-default-pc.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.needHero_right
+{
+    margin-bottom: 44px;
+    margin-left: 37%;
+
+    text-align: center;
+}
+
+.needHero_title
+{
+    font-size: 4.6rem;
+    font-weight: 500;
+    font-style: italic;
+
+    background: -webkit-linear-gradient(top, #3f6493 10%, #345177 100%);
+    background-image: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    text-shadow: 0 4px 5px rgba(60, 72, 96, .5);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.needHero_right p
+{
+    font-size: 1.8rem;
+    line-height: 1.47;
+
+    margin-top: 14px;
+    margin-bottom: 40px;
+
+    color: #405275;
+}
+
+.needHero_btn
+{
+    font-size: 1.9rem;
+    font-weight: bold;
+
+    display: block;
+
+    margin: auto;
+    padding: 2px 32px 7px;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: #fefefe;
+    border: 3px solid #ff9c00;
+    border-radius: 2px;
+    background-color: #ff9c00;
+}
+
+.needHero_btn:hover
+{
+    border: 3px solid #ffb033;
+    background-color: #ffb033;
+}
+
+.needHero_middle
+{
+    display: none;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .needHero
+    {
+        display: none;
+    }
+
+    .needHero_middle
+    {
+        display: block;
+
+        padding: 44px 30px;
+
+        background: #f0edf2;
+        background: linear-gradient(#fff, #f0edf2 50%);
+    }
+
+    .needHero_title_middle h2
+    {
+        font-size: 3.5rem;
+        font-weight: 500;
+        font-style: italic;
+
+        text-align: center;
+
+        background: -webkit-linear-gradient(top, #3f6493 10%, #345177 100%);
+        background-image: -o-linear-gradient(transparent, transparent);
+        -webkit-background-clip: text;
+        text-shadow: 0 4px 5px rgba(60, 72, 96, .5);
+
+        -webkit-text-fill-color: transparent;
+    }
+
+    .dorado_middle
+    {
+        height: 16.3rem;
+        min-height: 16.3rem;
+        margin-top: 50px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, .8);
+        background-image: url(../img/dorado-tablet.jpg);
+        background-position: 80% top;
+        background-size: cover;
+    }
+
+    .Widowmaker_middle
+    {
+        position: relative;
+        top: -30px;
+    }
+
+    .dorado_middle .Widowmaker_middle .widowmaker_tablet
+    {
+        display: block;
+
+        width: 350px;
+        margin: auto;
+    }
+
+    .needHero_main_middle
+    {
+        font-size: 1.5rem;
+        line-height: 1.5;
+
+        padding-top: 40px;
+        padding-bottom: 50px;
+
+        text-align: center;
+
+        color: #405275;
+        background: url(../img/game-bg-tablet.png) no-repeat;
+    }
+}
+
+@media only screen and (max-width: 767px)
+{
+    .needHero_middle
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+
+        background: linear-gradient(to top, #fbe6e9 88%, rgba(255, 255, 255, 0));
+    }
+
+    .needHero_main_middle
+    {
+        background-image: linear-gradient(to top, rgba(255, 255, 255, 0), #fff);
+    }
+}
+
+/*网页尾部部分*/
+
+.footer
+{
+    height: 358px;
+
+    background-color: #202020;
+}
+
+.footer_battle
+{
+    display: flex;
+
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 40px;
+
+    justify-content: flex-start;
+}
+
+.footer_battle p
+{
+    margin-right: 37px;
+}
+
+.footer_battle a
+{
+    font-size: 14px;
+
+    color: #fff;
+}
+
+.footer_battle a span
+{
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+    margin-top: -4px;
+    margin-right: 10px;
+}
+
+.footer_business
+{
+    display: flex;
+
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px 0 20px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+
+
+.footer_business .logo_bz
+{
+    display: inline-block;
+
+    width: 140px;
+    height: 71px;
+
+    background: url(../img/blizzard.png) no-repeat 0 0;
+}
+
+.logo_ne
+{
+    display: inline-block;
+
+    width: 125px;
+    height: 38px;
+
+    background: url(../img/logo_ne.png) no-repeat 0 0;
+}
+
+.business_info
+{
+    font-size: 12px;
+
+    padding: 0 0 0 90px;
+
+    color: rgba(255, 255, 255, .5);
+}
+
+.business_about
+{
+    line-height: 20px;
+
+    height: 20px;
+}
+
+.business_about ul
+{
+    width: auto;
+    height: 20px;
+}
+
+.business_about ul li
+{
+    float: left;
+
+    height: 20px;
+}
+
+.business_about ul li a
+{
+    font-size: 14px;
+
+    padding: 0 10px;
+
+    color: #ccc;
+}
+
+.anti-addiction
+{
+    font-size: 12px;
+    line-height: 20px;
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, .3);
+}
+
+@media only screen and (max-width: 1300px)
+{
+    .business_logo,
+    .footer_battle
+    {
+        display: none;
+    }
+
+    .anti-addiction
+    {
+        padding: 0 10px;
+    }
+}
